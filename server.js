@@ -19,17 +19,17 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 
 // Basic route that sends the user first to the AJAX Page
-app.get("/home.html", (req, res) => {
-  res.();
-});
+// app.get("/home.html", (req, res) => {
+//   res.();
+// });
 
-app.get("/table.html", (req, res) => {
-  res.();
-});
+// app.get("/table.html", (req, res) => {
+//   res.();
+// });
 
-app.get("/reserve.html", (req, res) => {
-    res.();
-  });
+// app.get("/reserve.html", (req, res) => {
+//     res.();
+//   });
 
 // Displays all characters
 app.get("/api/table", (req, res) => {
