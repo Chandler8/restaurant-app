@@ -18,7 +18,11 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 
 
+<<<<<<< HEAD
 // // Basic route that sends the user first to the AJAX Page
+=======
+// Basic route that sends the user first to the AJAX Page
+>>>>>>> d25ec20bf8efd3eb7e63c4c4ee0432e9c9a02d37
 // app.get("/home.html", (req, res) => {
 //   res.();
 // });
