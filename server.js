@@ -18,18 +18,18 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 
 
-// Basic route that sends the user first to the AJAX Page
-app.get("/home.html", (req, res) => {
-  res.();
-});
+// // Basic route that sends the user first to the AJAX Page
+// app.get("/home.html", (req, res) => {
+//   res.();
+// });
 
-app.get("/table.html", (req, res) => {
-  res.();
-});
+// app.get("/table.html", (req, res) => {
+//   res.();
+// });
 
-app.get("/reserve.html", (req, res) => {
-    res.();
-  });
+// app.get("/reserve.html", (req, res) => {
+//     res.();
+//   });
 
 // Displays all characters
 app.get("/api/table", (req, res) => {
@@ -40,37 +40,37 @@ app.get("/api/wait", (req, res) => {
     return res.json(wait);
   });
 
-// Displays a single character, or returns false
-app.get("/api/characters/:character", (req, res) => {
-  const chosen = req.params.character;
+// // Displays a single character, or returns false
+// app.get("/api/characters/:character", (req, res) => {
+//   const chosen = req.params.character;
 
-  console.log(chosen);
+//   console.log(chosen);
 
-  for (let i = 0; i < characters.length; i++) {
-    if (chosen === characters[i].routeName) {
-      return res.json(characters[i]);
-    }
-  }
+//   for (let i = 0; i < characters.length; i++) {
+//     if (chosen === characters[i].routeName) {
+//       return res.json(characters[i]);
+//     }
+//   }
 
-  return res.json(false);
-});
-
-// // Create New Characters - takes in JSON input
-// app.post("/api/reserve", (req, res) => {
-//   // req.body hosts is equal to the JSON post sent from the user
-//   // This works because of our body parsing middleware
-//   const newCharacter = req.body;
-
-//   // Using a RegEx Pattern to remove spaces from newCharacter
-//   // You can read more about RegEx Patterns later https://www.regexbuddy.com/regex.html
-//   newCharacter.routeName = newCharacter.name.replace(/\s+/g, "").toLowerCase();
-
-//   console.log(newCharacter);
-
-//   characters.push(newCharacter);
-
-//   res.json(newCharacter);
+//   return res.json(false);
 // });
+
+
+app.post("/api/wait", (req, res) => {
+  // req.body hosts is equal to the JSON post sent from the user
+  // This works because of our body parsing middleware
+  const newTable = req.body;
+
+  // Using a RegEx Pattern to remove spaces from newCharacter
+  // You can read more about RegEx Patterns later https://www.regexbuddy.com/regex.html
+  newTable.name = newTable.name.replace(/\s+/g, "").toLowerCase();
+
+  console.log(newTable);
+
+  wait.push(newTable);
+
+  res.json(newTable);
+});
 
 // Starts the server to begin listening
 // =============================================================
