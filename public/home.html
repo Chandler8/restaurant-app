@@ -4,8 +4,38 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <!-- bootstrap link -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
-    
+    <div class="container">
+        <div class="jumbotron">
+            <h1 class="text-center">
+                <span class="fa fa-fire"></span>Restaurant App
+            </h1>
+            <hr>
+            <h2 class="text-center">Reserve your seat now before we're all booked!</h2>
+            <br>
+            <a href="/tables">
+                <button class="btn btn-lg btn-primary">
+                    <span class="fa fa-list-alt"></span>View Seats
+                </button>
+            </a>
+            <a href="/reserve">
+                <button class="btn btn-lg btn-danger">
+                    <span class="fa fa-credit-card"></span>Make Reservation
+                </button>
+            </a>
+        </div>
+    </div>
+    <footer class="footer">
+        <div class="container">
+            <p>
+                <a href="/api/tables">API Table Link</a>
+                <a href="/api/waitlist">API Wait List</a>
+            </p>
+        </div>
+    </footer>
 </body>
 </html>
