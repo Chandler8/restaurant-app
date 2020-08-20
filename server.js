@@ -1,5 +1,7 @@
 const express = require("express");
 const path = require("path");
+const table = require("./table.js");
+const wait = require("./wait.js");
 
 // Sets up the Express App
 // =============================================================
@@ -10,48 +12,58 @@ const PORT = process.env.PORT || 3000;
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
-// Star Wars Characters (DATA)
-// =============================================================
-const characters = [
-  {
-    routeName: "yoda",
-    name: "Yoda",
-    role: "Jedi Master",
-    age: 900,
-    forcePoints: 2000
-  },
-  {
-    routeName: "darthmaul",
-    name: "Darth Maul",
-    role: "Sith Lord",
-    age: 200,
-    forcePoints: 1200
-  },
-  {
-    routeName: "obiwankenobi",
-    name: "Obi Wan Kenobi",
-    role: "Jedi Master",
-    age: 55,
-    forcePoints: 1350
-  }
-];
+app.use(express.static(path.join(__dirname, 'public')));
+
+// // Star Wars Characters (DATA)
+// // =============================================================
+// const characters = [
+//   {
+//     routeName: "yoda",
+//     name: "Yoda",
+//     role: "Jedi Master",
+//     age: 900,
+//     forcePoints: 2000
+//   },
+//   {
+//     routeName: "darthmaul",
+//     name: "Darth Maul",
+//     role: "Sith Lord",
+//     age: 200,
+//     forcePoints: 1200
+//   },
+//   {
+//     routeName: "obiwankenobi",
+//     name: "Obi Wan Kenobi",
+//     role: "Jedi Master",
+//     age: 55,
+//     forcePoints: 1350
+//   }
+// ];
 
 // Routes
 // =============================================================
 
 // Basic route that sends the user first to the AJAX Page
-app.get("/", (req, res) => {
-  res.sendFile(path.join(__dirname, "view.html"));
+app.get("/home.html", (req, res) => {
+  res.();
 });
 
-app.get("/add", (req, res) => {
-  res.sendFile(path.join(__dirname, "add.html"));
+app.get("/table.html", (req, res) => {
+  res.();
 });
+
+app.get("/reserve.html", (req, res) => {
+    res.();
+  });
 
 // Displays all characters
-app.get("/api/characters", (req, res) => {
-  return res.json(characters);
+app.get("/api/table", (req, res) => {
+  return res.json(table);
 });
+
+app.get("/api/wait", (req, res) => {
+    return res.json(wait);
+  });
 
 // Displays a single character, or returns false
 app.get("/api/characters/:character", (req, res) => {
